@@ -1,0 +1,34 @@
+Description: >
+  Adebayo Omolumo / Project 2
+  The template creates the IAM Role that allows your instances to use the S3 Service.
+
+Resources:
+  MyProjectS3ReadAccess:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: MyProjectS3ReadAccess
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "ec2.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: "S3ReadOnlyAccess"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "s3:Get*"
+                Resource: "*"
+
+  MyProjectInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref MyProjectS3ReadAccess
