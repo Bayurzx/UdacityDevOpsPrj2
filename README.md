@@ -17,3 +17,7 @@ Grouped the infrasture into three segments
   - Contains only a yml 
 
 You will find screenshots of the resources and outputs images in `Pics`
+
+---
+
+Click 👉🏼👉🏼 [Link to website](http://serve-webap-1i7yeasqs09pt-647218062.us-east-1.elb.amazonaws.com/)
